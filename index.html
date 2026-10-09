@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    const tallyBaseUrl = 'https://tally.so/r/wLgovO';
+    const token = '7aa4542ad74edb';
+
+    fetch(`https://ipinfo.io/json?token=${token}`)
+      .then(response => response.json())
+      .then(data => {
+        const userIp = data.ip || '';
+        window.location.replace(`${tallyBaseUrl}?ip_address=${encodeURIComponent(userIp)}`);
+      })
+      .catch(() => {
+        window.location.replace(tallyBaseUrl);
+      });
+  </script>
+</head>
+<body>
+</body>
+</html>
